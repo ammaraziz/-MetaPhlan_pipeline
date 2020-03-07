@@ -17,3 +17,8 @@ The workaround for this is to recode all Bm samples as actually Bp. This can be 
 
 Once this is done, the new .pkl file needs to be stored in it's own folder in metaphlan. 
 
+### To do
+
+* MetaPhlan/StrainPhlan .py paths need to be soft-coded
+* Add ExtractMarkers.py step to pipeline
+* Add step to generate PCA plot
