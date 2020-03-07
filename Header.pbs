@@ -1,0 +1,34 @@
+#!/bin/bash
+#PBS -S /bin/sh
+#PBS -m n
+#PBS -j oe
+#PBS -o logs/
+#PBS -l walltime=96:00:00
+
+PATH=$PATH:/home/aaziz/bin:
+source /home/aaziz/.bash_profile
+
+#load modules
+. $MODULESHOME/init/bash
+
+module load python/2.7.13
+
+
+#change dir to the script dir
+if [ ! $PBS_O_WORKDIR ]
+    then
+        PBS_O_WORKDIR="$PWD"
+fi
+
+cd $PBS_O_WORKDIR
+
+if [ ! "$command" ]
+    then
+	    echo -e "Error: script must be supplied with a command"
+	    exit 1
+	else
+    	echo "$command"
+	    eval "$command"
+fi
+
+exit 0

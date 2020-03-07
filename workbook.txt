@@ -1,0 +1,18 @@
+#running MetaPhlan/Strainphlan
+
+When generating the marker files for Strainphlan, metaphlan detects Bm and Bp when the samples only contain Bp.
+The workaround for this is to recode all Bm samples as actually Bp. This can be done by using the pickle package in python and readingi n the .pkl file. 
+
+Code is found in ~/candidature/aim2/metaphlan/modify_pkl.py
+
+Once this is done, the new .pkl file needs to be stored in it's own folder in metaphlan. 
+
+#TODO:
+
+1. test if new modified db/.pkl works DONE
+2. test if any Bm exists in the db DONE
+
+3. rerun metaphlan DONE
+4. need to build index of mpa_v21 using bowtie2 for strainphlan to run. 
+	~ cmd: bowtie2-build -f <reference_in> <bt2_base>
+	~ before I can do the above, I need to dump the new mpa_v21 database as fasta
